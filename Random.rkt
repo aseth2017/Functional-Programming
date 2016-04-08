@@ -1,0 +1,35 @@
+#lang racket
+(define (numdigits num)
+  (cond
+    [(< num 10) 1]
+    [else (+ 1 (numdigits(quotient num 10)))]
+))
+(define num (read))
+(numdigits num)
+
+(define list (cons 3 (cons 4 3)))
+(define create (cons 4 (cons 3 4)))
+(cons 4 (cons create list))
+(cons 6 (cons 4 (cons 3 empty)))
+
+(define (create-list size)
+  (cond
+    [(= size 0) empty]
+    [else (cons size (create-list(- size 1)))]
+    ))
+(define size (read))
+(create-list size)
+
+(define (length l)
+  (cond
+   [(empty? l) 0]
+   [else ( + 1 (length (rest l)))]
+   ))
+
+(define (sum n)
+  (cond
+    [(< n 1) 0]
+    [else (+ n (sum (- n 1)))]
+    ))
+(define n (read))
+(sum n)
